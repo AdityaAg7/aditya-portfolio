@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3A2418"/>
+      <stop offset="100%" stop-color="#2A1A14"/>
+    </linearGradient>
+    <linearGradient id="needle-g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#DFA040"/>
+      <stop offset="60%" stop-color="#B87333"/>
+      <stop offset="100%" stop-color="#8B6914"/>
+    </linearGradient>
+    <linearGradient id="border-g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#DFA040"/>
+      <stop offset="50%" stop-color="#B87333"/>
+      <stop offset="100%" stop-color="#8B6040"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="0.8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background rounded square -->
+  <rect width="32" height="32" rx="6" fill="url(#bg)"/>
+
+  <!-- Bronze border -->
+  <rect x="1" y="1" width="30" height="30" rx="5.2" fill="none" stroke="url(#border-g)" stroke-width="1"/>
+
+  <!-- Corner ticks — tailor marks -->
+  <line x1="1" y1="5"  x2="1"  y2="1"  stroke="#B87333" stroke-width="1.2"/>
+  <line x1="1" y1="1"  x2="5"  y2="1"  stroke="#B87333" stroke-width="1.2"/>
+  <line x1="31" y1="27" x2="31" y2="31" stroke="#B87333" stroke-width="1.2"/>
+  <line x1="31" y1="31" x2="27" y2="31" stroke="#B87333" stroke-width="1.2"/>
+
+  <!-- Needle — diagonal, center-left -->
+  <g filter="url(#glow)">
+    <!-- Needle shaft -->
+    <rect x="8.5" y="7" width="2.2" height="14" rx="1.1"
+          fill="url(#needle-g)"
+          transform="rotate(-38 9.6 14)"/>
+    <!-- Eye of needle (hole) -->
+    <ellipse cx="13.2" cy="8.4" rx="1" ry="0.6"
+             transform="rotate(-38 13.2 8.4)"
+             fill="#2A1A14" opacity="0.9"/>
+    <!-- Needle tip dot -->
+    <circle cx="6.8" cy="20.2" r="0.9" fill="#DFA040" opacity="0.9"/>
+  </g>
+
+  <!-- Thread arc from needle tip -->
+  <path d="M 7.2 19.5 Q 12 24 19 20" 
+        stroke="#C8913A" stroke-width="0.9" fill="none" 
+        stroke-dasharray="1.4 1.2" opacity="0.75"/>
+
+  <!-- Initials "AA" — right side, stacked small -->
+  <text x="20" y="15.5"
+        font-family="Georgia, serif"
+        font-size="7.5"
+        font-weight="700"
+        fill="#E8DDD3"
+        letter-spacing="-0.5"
+        text-anchor="middle">AA</text>
+
+  <!-- Thin rule under initials -->
+  <line x1="15.5" y1="17.5" x2="24.5" y2="17.5" stroke="#B87333" stroke-width="0.5" opacity="0.6"/>
+</svg>
